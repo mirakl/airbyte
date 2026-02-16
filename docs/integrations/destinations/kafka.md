@@ -99,6 +99,31 @@ More info about this can be found in the [Kafka producer configs documentation s
 
 _NOTE_: Some configurations for SSL are not available yet.
 
+### Supported authentication methods
+
+The Kafka destination connector supports the following authentication protocols:
+
+- **PLAINTEXT**: No authentication or encryption
+- **SASL_PLAINTEXT**: SASL authentication without encryption
+- **SASL_SSL**: SASL authentication with SSL/TLS encryption
+- **SSL**: Certificate-based mutual TLS authentication (mTLS) without SASL
+
+#### SSL certificate authentication
+
+The SSL protocol enables secure, certificate-based authentication to your Kafka cluster. This is ideal for production environments where mutual TLS authentication is required.
+
+**Required Configuration:**
+- Client certificate chain (PEM format)
+- Private key for the client certificate (PEM format)
+- CA certificates for server verification (PEM format)
+
+**Optional Configuration:**
+- Keystore password (if the private key is encrypted)
+- Truststore password
+- Endpoint identification algorithm (hostname verification)
+
+See the connector configuration in Airbyte for detailed field descriptions.
+
 ## Namespace support
 
 This destination supports [namespaces](https://docs.airbyte.com/platform/using-airbyte/core-concepts/namespaces). The namespace is incorporated into the topic name via the `{namespace}` variable in the `topic_pattern` configuration.
