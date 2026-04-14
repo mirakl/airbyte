@@ -24,7 +24,7 @@ overrides = "^7.4.0"
 python-ulid = "^3.0.0"
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^8.3.2"
+pytest = ">=8.3.2,<10.0.0"
 ruff = "^0.7.1"
 black = "^23.7.0"
 mypy = "^1.5.1"
